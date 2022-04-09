@@ -21,9 +21,6 @@
     <ClInclude Include="SComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -36,15 +33,15 @@
     <ClInclude Include="SLayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SSearchOptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SSprite.cpp">
@@ -57,6 +54,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SSearchOptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
