@@ -3,11 +3,14 @@
 #include "SLevel.h"
 
 class SGame {
-	static std::vector<SLevel> levels;
-	static int currentLevelIndex;
+private:
+	static int levelIndex;
 
 public:
+	static std::vector<SLevel> levels;
+
 	static void update();
 
 	static void draw();
+
 };

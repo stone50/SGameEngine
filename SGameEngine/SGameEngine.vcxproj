@@ -88,6 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -102,6 +103,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -116,6 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +133,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,8 +145,10 @@
   <ItemGroup>
     <ClInclude Include="SComponent.h" />
     <ClInclude Include="SGame.h" />
+    <ClInclude Include="SImage.h" />
     <ClInclude Include="SLayer.h" />
     <ClInclude Include="SLevel.h" />
+    <ClInclude Include="SColor.h" />
     <ClInclude Include="SPoint.h" />
     <ClInclude Include="SSearchOptions.h" />
     <ClInclude Include="SSprite.h" />
@@ -151,8 +157,10 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SComponent.cpp" />
     <ClCompile Include="SGame.cpp" />
+    <ClCompile Include="SImage.cpp" />
     <ClCompile Include="SLayer.cpp" />
     <ClCompile Include="SLevel.cpp" />
+    <ClCompile Include="SColor.cpp" />
     <ClCompile Include="SPoint.cpp" />
     <ClCompile Include="SSearchOptions.cpp" />
     <ClCompile Include="SSprite.cpp" />

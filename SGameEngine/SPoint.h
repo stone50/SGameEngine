@@ -2,48 +2,47 @@
 
 #include "SComponent.h"
 
-template<class T>
 class SPoint : public SComponent {
 public:
-	T x;
-	T y;
+	double x;
+	double y;
 
-	SPoint(T _x = 0, T _y = 0);
-	SPoint(const SPoint<T>& other);
+	SPoint(double _x = 0, double _y = 0);
+	SPoint(const SPoint& other);
 
-	SPoint<T>& operator=(const SPoint<T>& other);
+	SPoint& operator=(const SPoint& other);
 
-	const SPoint<T> operator+(const SPoint<T>& other);
-	SPoint<T> operator+(T delta);
+	const SPoint operator+(const SPoint& other);
+	SPoint operator+(double delta);
 
-	SPoint<T> operator-(const SPoint<T>& other);
-	SPoint<T> operator-(T delta);
+	SPoint operator-(const SPoint& other);
+	SPoint operator-(double delta);
 
-	SPoint<T> operator*(const SPoint<T>& other);
-	SPoint<T> operator*(T delta);
+	SPoint operator*(const SPoint& other);
+	SPoint operator*(double delta);
 
-	SPoint<T> operator/(const SPoint<T>& other);
-	SPoint<T> operator/(T delta);
+	SPoint operator/(const SPoint& other);
+	SPoint operator/(double delta);
 
-	SPoint<T> operator%(const SPoint<T>& other);
-	SPoint<T> operator%(T delta);
+	SPoint operator%(const SPoint& other);
+	SPoint operator%(double delta);
 
-	SPoint<T>& operator+=(const SPoint<T>& other);
-	SPoint<T>& operator+=(T delta);
+	SPoint& operator+=(const SPoint& other);
+	SPoint& operator+=(double delta);
 
-	SPoint<T>& operator-=(const SPoint<T>& other);
-	SPoint<T>& operator-=(T delta);
+	SPoint& operator-=(const SPoint& other);
+	SPoint& operator-=(double delta);
 
-	SPoint<T>& operator*=(const SPoint<T>& other);
-	SPoint<T>& operator*=(T delta);
+	SPoint& operator*=(const SPoint& other);
+	SPoint& operator*=(double delta);
 
-	SPoint<T>& operator/=(const SPoint<T>& other);
-	SPoint<T>& operator/=(T delta);
+	SPoint& operator/=(const SPoint& other);
+	SPoint& operator/=(double delta);
 
-	SPoint<T>& operator%=(const SPoint<T>& other);
-	SPoint<T>& operator%=(T delta);
+	SPoint& operator%=(const SPoint& other);
+	SPoint& operator%=(double delta);
 
-	bool operator==(const SPoint<T>& other);
+	bool operator==(const SPoint& other);
 
-	bool operator!=(const SPoint<T>& other);
+	bool operator!=(const SPoint& other);
 };

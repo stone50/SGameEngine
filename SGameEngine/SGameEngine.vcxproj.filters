@@ -36,6 +36,12 @@
     <ClInclude Include="SSearchOptions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SColor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SGame.cpp">
@@ -60,6 +66,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SColor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

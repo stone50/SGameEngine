@@ -3,149 +3,122 @@
 
 #include "SPoint.h"
 
-template<class T>
-SPoint<T>::SPoint(T _x, T _y) :
+SPoint::SPoint(double _x, double _y) :
 	x(_x),
 	y(_y)
 {
-	this->tags = std::unordered_set<std::string>({"point"});
+	tags = std::unordered_set<std::string>({ "point" });
 }
-template<class T>
-SPoint<T>::SPoint(const SPoint<T>& other) :
+SPoint::SPoint(const SPoint& other) :
 	x(other.x),
 	y(other.y)
 {
-	this->tags = other.tags;
-	this->components = other.components;
+	tags = other.tags;
+	components = other.components;
 }
 
-template<class T>
-SPoint<T>& SPoint<T>::operator=(const SPoint<T>& other) {
+SPoint& SPoint::operator=(const SPoint& other) {
 	x = other.x;
 	y = other.y;
 	return *this;
 }
 
-template<class T>
- const SPoint<T> SPoint<T>::operator+(const SPoint<T>& other) {
-	return SPoint<T>(x + other.x, y + other.y);
+const SPoint SPoint::operator+(const SPoint& other) {
+	return SPoint(x + other.x, y + other.y);
 }
-template<class T>
- SPoint<T> SPoint<T>::operator+(T delta) {
-	return SPoint<T>(x + delta, y + delta);
+SPoint SPoint::operator+(double delta) {
+	return SPoint(x + delta, y + delta);
 }
 
-template<class T>		  
- SPoint<T> SPoint<T>::operator-(const SPoint<T>& other) {
-	return SPoint<T>(x - other.x, y - other.y);
+SPoint SPoint::operator-(const SPoint& other) {
+	return SPoint(x - other.x, y - other.y);
 }
-template<class T>
- SPoint<T> SPoint<T>::operator-(T delta) {
+SPoint SPoint::operator-(double delta) {
 	return SPoint(x - delta, y - delta);
 }
 
-template<class T>		  
-SPoint<T> SPoint<T>::operator*(const SPoint<T>& other) {
-	return SPoint<T>(x * other.x, y * other.y);
+SPoint SPoint::operator*(const SPoint& other) {
+	return SPoint(x * other.x, y * other.y);
 }
-template<class T>
-SPoint<T> SPoint<T>::operator*(T delta) {
+SPoint SPoint::operator*(double delta) {
 	return SPoint(x * delta, y * delta);
 }
 
-template<class T>		  
-SPoint<T> SPoint<T>::operator/(const SPoint<T>& other) {
-	return SPoint<T>(x / other.x, y / other.y);
+SPoint SPoint::operator/(const SPoint& other) {
+	return SPoint(x / other.x, y / other.y);
 }
-template<class T>
-SPoint<T> SPoint<T>::operator/(T delta) {
-	return SPoint<T>(x / delta, y / delta);
+SPoint SPoint::operator/(double delta) {
+	return SPoint(x / delta, y / delta);
 }
 
-template<class T>		  
-SPoint<T> SPoint<T>::operator%(const SPoint<T>& other) {
-	return SPoint<T>((T)fmod(x, other.x), (T)fmod(y, other.y));
+SPoint SPoint::operator%(const SPoint& other) {
+	return SPoint((double)fmod(x, other.x), (double)fmod(y, other.y));
 }
-template<class T>
-SPoint<T> SPoint<T>::operator%(T delta) {
-	return SPoint<T>((T)fmod(x, delta), (T)fmod(y, delta));
+SPoint SPoint::operator%(double delta) {
+	return SPoint((double)fmod(x, delta), (double)fmod(y, delta));
 }
-	
-template<class T>	 
-SPoint<T>& SPoint<T>::operator+=(const SPoint<T>& other) {
+
+SPoint& SPoint::operator+=(const SPoint& other) {
 	x += other.x;
 	y += other.y;
 	return *this;
 }
-template<class T>
-SPoint<T>& SPoint<T>::operator+=(T delta) {
+SPoint& SPoint::operator+=(double delta) {
 	x += delta;
 	y += delta;
 	return *this;
 }
 
-template<class T>		  
-SPoint<T>& SPoint<T>::operator-=(const SPoint<T>& other) {
+SPoint& SPoint::operator-=(const SPoint& other) {
 	x -= other.x;
 	y -= other.y;
 	return *this;
 }
-template<class T>
-SPoint<T>& SPoint<T>::operator-=(T delta) {
+SPoint& SPoint::operator-=(double delta) {
 	x -= delta;
 	y -= delta;
 	return *this;
 }
 
-template<class T>		  
-SPoint<T>& SPoint<T>::operator*=(const SPoint<T>& other) {
+SPoint& SPoint::operator*=(const SPoint& other) {
 	x *= other.x;
 	y *= other.y;
 	return *this;
 }
-template<class T>
-SPoint<T>& SPoint<T>::operator*=(T delta) {
+SPoint& SPoint::operator*=(double delta) {
 	x *= delta;
 	y *= delta;
 	return *this;
 }
 
-template<class T>		  
-SPoint<T>& SPoint<T>::operator/=(const SPoint<T>& other) {
+SPoint& SPoint::operator/=(const SPoint& other) {
 	x /= other.x;
 	y /= other.y;
 	return *this;
 }
-template<class T>
-SPoint<T>& SPoint<T>::operator/=(T delta) {
+SPoint& SPoint::operator/=(double delta) {
 	x /= delta;
 	y /= delta;
 	return *this;
 }
 
-template<class T>
-SPoint<T>& SPoint<T>::operator%=(const SPoint<T>& other) {
-	x = (T)fmod(x, other.x);
-	y = (T)fmod(y, other.y);
+SPoint& SPoint::operator%=(const SPoint& other) {
+	x = (double)fmod(x, other.x);
+	y = (double)fmod(y, other.y);
 	return *this;
 }
-template<class T>
-SPoint<T>& SPoint<T>::operator%=(T delta) {
-	x = (T)fmod(x, delta);
-	y = (T)fmod(y, delta);
+SPoint& SPoint::operator%=(double delta) {
+	x = (double)fmod(x, delta);
+	y = (double)fmod(y, delta);
 	return *this;
 }
 
-template<class T>
-bool SPoint<T>::operator==(const SPoint<T>& other) {
+
+bool SPoint::operator==(const SPoint& other) {
 	return (x == other.x) && (y == other.y);
 }
 
-template<class T>
-bool SPoint<T>::operator!=(const SPoint<T>& other) {
+
+bool SPoint::operator!=(const SPoint& other) {
 	return (x != other.x) || (y != other.y);
 }
-
-template class SPoint<int>;
-template class SPoint<double>;
-template class SPoint<float>;
