@@ -3,11 +3,26 @@
 
 #include "SPoint.h"
 
+void SPoint::end(SPoint& instance) {
+	//TODO
+}
+
+SComponentEvent<SPoint> SPoint::onStart = SComponentEvent<SPoint>();
+
+SComponentEvent<SPoint> SPoint::onUpdate = SComponentEvent<SPoint>();
+
+SComponentEvent<SPoint> SPoint::onDraw = SComponentEvent<SPoint>();
+
+SComponentEvent<SPoint> SPoint::onEnd = SComponentEvent<SPoint>(std::vector<void(*)(SPoint&)>({
+	end
+	}));
+
 SPoint::SPoint(double _x, double _y) :
 	x(_x),
 	y(_y)
 {
 	tags = std::unordered_set<std::string>({ "point" });
+	onStart.trigger(*this);
 }
 SPoint::SPoint(const SPoint& other) :
 	x(other.x),
@@ -15,6 +30,7 @@ SPoint::SPoint(const SPoint& other) :
 {
 	tags = other.tags;
 	components = other.components;
+	onStart.trigger(*this);
 }
 
 SPoint& SPoint::operator=(const SPoint& other) {
@@ -23,7 +39,7 @@ SPoint& SPoint::operator=(const SPoint& other) {
 	return *this;
 }
 
-const SPoint SPoint::operator+(const SPoint& other) {
+SPoint SPoint::operator+(const SPoint& other) {
 	return SPoint(x + other.x, y + other.y);
 }
 SPoint SPoint::operator+(double delta) {

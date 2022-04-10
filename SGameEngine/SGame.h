@@ -6,11 +6,19 @@ class SGame {
 private:
 	static int levelIndex;
 
-public:
-	static std::vector<SLevel> levels;
+	static void start();
 
 	static void update();
 
 	static void draw();
+
+	static void end();
+
+public:
+	static std::vector<SLevel> levels;
+	static SEvent onStart;
+	static SEvent onUpdate;
+	static SEvent onDraw;
+	static SEvent onEnd;
 
 };

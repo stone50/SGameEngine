@@ -1,9 +1,40 @@
 #include "SLayer.h"
 
+void SLayer::update(SLayer& instance) {
+	for (SComponent& gameObject : instance.gameObjects) {
+		gameObject.onUpdate.trigger(gameObject);
+	}
+}
+
+void SLayer::draw(SLayer& instance) {
+	for (SComponent& gameObject : instance.gameObjects) {
+		gameObject.onDraw.trigger(gameObject);
+	}
+}
+
+void SLayer::end(SLayer& instance) {
+	//TODO
+}
+
+SComponentEvent<SLayer> SLayer::onStart = SComponentEvent<SLayer>(std::vector<void(*)(SLayer&)>());
+
+SComponentEvent<SLayer> SLayer::onUpdate = SComponentEvent<SLayer>(std::vector<void(*)(SLayer&)>({
+	update
+	}));
+
+SComponentEvent<SLayer> SLayer::onDraw = SComponentEvent<SLayer>(std::vector<void(*)(SLayer&)>({
+	draw
+	}));
+
+SComponentEvent<SLayer> SLayer::onEnd = SComponentEvent<SLayer>(std::vector<void(*)(SLayer&)>({
+	end
+	}));
+
 SLayer::SLayer(std::vector<SComponent> _gameObjects) :
 	gameObjects(_gameObjects)
 {
 	tags = std::unordered_set<std::string>({ "layer" });
+	onStart.trigger(*this);
 }
 
 SLayer::SLayer(const SLayer& other) :
@@ -11,20 +42,5 @@ SLayer::SLayer(const SLayer& other) :
 {
 	tags = other.tags;
 	components = other.components;
-}
-
-void SLayer::update() {
-	for (SComponent& gameObject : gameObjects) {
-		gameObject.update();
-	}
-
-	SComponent::update();
-}
-
-void SLayer::draw() {
-	for (SComponent& gameObject : gameObjects) {
-		gameObject.draw();
-	}
-
-	SComponent::draw();
+	onStart.trigger(*this);
 }

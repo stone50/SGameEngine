@@ -9,13 +9,19 @@ private:
 	double rotation;
 	int imageIndex;
 
+	static void update(SSprite& instance);
+
+	static void draw(SSprite& instance);
+
+	static void end(SSprite& instance);
+
 public:
 	std::vector<SImage> images;
+	static SComponentEvent<SSprite> onStart;
+	static SComponentEvent<SSprite> onUpdate;
+	static SComponentEvent<SSprite> onDraw;
+	static SComponentEvent<SSprite> onEnd;
 
 	SSprite();
 	SSprite(const SSprite& other);
-
-	void update();
-
-	void draw();
 };

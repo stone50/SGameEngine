@@ -42,6 +42,12 @@
     <ClInclude Include="SColor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SComponentEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SGame.cpp">
@@ -72,6 +78,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SColor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
