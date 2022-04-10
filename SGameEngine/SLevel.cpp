@@ -1,22 +1,32 @@
 #include "SLevel.h"
 
+void SLevel::start(SLevel& instance) {
+	for (SLayer& layer : instance.layers) {
+		SLayer::onStart.trigger(layer);
+	}
+}
+
 void SLevel::update(SLevel& instance) {
 	for (SLayer& layer : instance.layers) {
-		instance.onUpdate.trigger(instance);
+		SLayer::onUpdate.trigger(layer);
 	}
 }
 
 void SLevel::draw(SLevel& instance) {
 	for (SLayer& layer : instance.layers) {
-		instance.onDraw.trigger(instance);
+		SLayer::onDraw.trigger(layer);
 	}
 }
 
 void SLevel::end(SLevel& instance) {
-	//TODO
+	for (SLayer& layer : instance.layers) {
+		SLayer::onEnd.trigger(layer);
+	}
 }
 
-SComponentEvent<SLevel> SLevel::onStart = SComponentEvent<SLevel>(std::vector<void(*)(SLevel&)>());
+SComponentEvent<SLevel> SLevel::onStart = SComponentEvent<SLevel>(std::vector<void(*)(SLevel&)>({
+	start
+	}));
 
 SComponentEvent<SLevel> SLevel::onUpdate = SComponentEvent<SLevel>(std::vector<void(*)(SLevel&)>({
 	update

@@ -2,19 +2,13 @@
 
 #include "SColor.h"
 
-void SColor::end(SColor& instance) {
-	//TODO
-}
-
 SComponentEvent<SColor> SColor::onStart = SComponentEvent<SColor>();
 
 SComponentEvent<SColor> SColor::onUpdate = SComponentEvent<SColor>();
 
 SComponentEvent<SColor> SColor::onDraw = SComponentEvent<SColor>();
 
-SComponentEvent<SColor> SColor::onEnd = SComponentEvent<SColor>(std::vector<void(*)(SColor&)>({
-	end
-	}));
+SComponentEvent<SColor> SColor::onEnd = SComponentEvent<SColor>();
 
 SColor::SColor(char _red, char _green, char _blue, double _alpha) :
 	red(_red),

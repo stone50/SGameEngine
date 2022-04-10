@@ -3,19 +3,13 @@
 
 #include "SPoint.h"
 
-void SPoint::end(SPoint& instance) {
-	//TODO
-}
-
 SComponentEvent<SPoint> SPoint::onStart = SComponentEvent<SPoint>();
 
 SComponentEvent<SPoint> SPoint::onUpdate = SComponentEvent<SPoint>();
 
 SComponentEvent<SPoint> SPoint::onDraw = SComponentEvent<SPoint>();
 
-SComponentEvent<SPoint> SPoint::onEnd = SComponentEvent<SPoint>(std::vector<void(*)(SPoint&)>({
-	end
-	}));
+SComponentEvent<SPoint> SPoint::onEnd = SComponentEvent<SPoint>();
 
 SPoint::SPoint(double _x, double _y) :
 	x(_x),
@@ -129,11 +123,9 @@ SPoint& SPoint::operator%=(double delta) {
 	return *this;
 }
 
-
 bool SPoint::operator==(const SPoint& other) {
 	return (x == other.x) && (y == other.y);
 }
-
 
 bool SPoint::operator!=(const SPoint& other) {
 	return (x != other.x) || (y != other.y);

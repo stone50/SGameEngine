@@ -4,7 +4,6 @@
 
 class SPoint : public SComponent {
 private:
-	static void end(SPoint& instance);
 
 public:
 	double x;

@@ -21,4 +21,8 @@ public:
 	static SEvent onDraw;
 	static SEvent onEnd;
 
+	static int getLevelIndex();
+
+	static void setLevelIndex(int _levelIndex);
+
 };

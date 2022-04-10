@@ -1,19 +1,22 @@
 #include "SComponent.h"
+#include "SGame.h"
 
 void SComponent::update(SComponent& instance) {
 	for (SComponent& component : instance.components) {
-		SComponent::onUpdate.trigger(instance);
+		component.onUpdate.trigger(component);
 	}
 }
 
 void SComponent::draw(SComponent& instance) {
 	for (SComponent& component : instance.components) {
-		SComponent::onDraw.trigger(instance);
+		component.onDraw.trigger(component);
 	}
 }
 
 void SComponent::end(SComponent& instance) {
-	//TODO
+	for (SComponent& component : instance.components) {
+		component.onEnd.trigger(component);
+	}
 }
 
 SComponentEvent<SComponent> SComponent::onStart = SComponentEvent<SComponent>();
@@ -78,10 +81,34 @@ void SComponent::addComponent(SComponent component) {
 
 void SComponent::removeComponent(SComponent* component) {
 	for (int i = 0; i < components.size(); i++) {
-		if (&components[i] == component) {
-			component[i].parentComponent = nullptr;
+		SComponent& currentComponent = components[i];
+		if (&currentComponent == component) {
+			currentComponent.onEnd.trigger(currentComponent);
 			components.erase(components.begin() + i);
 			break;
 		}
+	}
+}
+
+void SComponent::destroy() {
+	onEnd.trigger(*this);
+	if (parentComponent == nullptr) {
+		SLevel& currentLevel = SGame::levels[SGame::getLevelIndex()];
+		bool selfFound = false;
+		int layerIndex = -1;
+		while (!selfFound && ++layerIndex < currentLevel.layers.size()) {
+			std::vector<SComponent>& currentGameObjects = currentLevel.layers[layerIndex].gameObjects;
+			int gameObjectIndex = -1;
+			while (!selfFound && ++gameObjectIndex < currentGameObjects.size()) {
+				SComponent& currentGameObject = currentGameObjects[gameObjectIndex];
+				if (&currentGameObject == this) {
+					currentGameObjects.erase(currentGameObjects.begin() + gameObjectIndex);
+					selfFound = true;
+				}
+			}
+		}
+	}
+	else {
+		parentComponent->removeComponent(this);
 	}
 }

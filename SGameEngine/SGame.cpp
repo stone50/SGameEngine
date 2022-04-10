@@ -1,19 +1,19 @@
 #include "SGame.h"
 
 void SGame::start() {
-	//TODO
+	SLevel::onStart.trigger(levels[0]);
 }
 
 void SGame::update() {
-	//TODO
+	SLevel::onUpdate.trigger(levels[levelIndex]);
 }
 
 void SGame::draw() {
-	//TODO
+	SLevel::onDraw.trigger(levels[levelIndex]);
 }
 
 void SGame::end() {
-	//TODO
+	SLevel::onEnd.trigger(levels[levelIndex]);
 }
 
 std::vector<SLevel> SGame::levels = std::vector<SLevel>({ SLevel() });
@@ -34,3 +34,13 @@ SEvent SGame::onDraw = SEvent(std::vector<void(*)()>({
 SEvent SGame::onEnd = SEvent(std::vector<void(*)()>({
 	end
 	}));
+
+int SGame::getLevelIndex() {
+	return levelIndex;
+}
+
+void SGame::setLevelIndex(int _levelIndex) {
+	SLevel::onEnd.trigger(levels[levelIndex]);
+	levelIndex = _levelIndex;
+	SLevel::onStart.trigger(levels[levelIndex]);
+}

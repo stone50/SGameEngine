@@ -13,8 +13,6 @@ private:
 
 	static void draw(SSprite& instance);
 
-	static void end(SSprite& instance);
-
 public:
 	std::vector<SImage> images;
 	static SComponentEvent<SSprite> onStart;

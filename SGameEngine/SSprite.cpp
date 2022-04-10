@@ -3,10 +3,8 @@
 void SSprite::update(SSprite& instance) {
 	//TODO
 }
+
 void SSprite::draw(SSprite& instance) {
-	//TODO
-}
-void SSprite::end(SSprite& instance) {
 	//TODO
 }
 
@@ -20,9 +18,7 @@ SComponentEvent<SSprite> SSprite::onDraw = SComponentEvent<SSprite>(std::vector<
 	draw
 	}));
 
-SComponentEvent<SSprite> SSprite::onEnd = SComponentEvent<SSprite>(std::vector<void(*)(SSprite&)>({
-	end
-	}));
+SComponentEvent<SSprite> SSprite::onEnd = SComponentEvent<SSprite>();
 
 SSprite::SSprite() {
 	tags = std::unordered_set<std::string>({ "sprite" });

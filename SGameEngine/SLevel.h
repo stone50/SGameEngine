@@ -5,6 +5,8 @@
 
 class SLevel : public SComponent {
 private:
+	static void start(SLevel& instance);
+
 	static void update(SLevel& instance);
 
 	static void draw(SLevel& instance);

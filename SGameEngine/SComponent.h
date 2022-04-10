@@ -37,4 +37,6 @@ public:
 
 	void removeComponent(SComponent* component);
 
+	void destroy();
+
 };

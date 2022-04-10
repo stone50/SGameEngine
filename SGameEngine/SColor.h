@@ -6,8 +6,6 @@ class SColor : public SComponent {
 private:
 	double alpha;
 
-	static void end(SColor& instance);
-
 public:
 	char red;
 	char green;

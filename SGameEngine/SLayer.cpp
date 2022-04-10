@@ -1,5 +1,11 @@
 #include "SLayer.h"
 
+void SLayer::start(SLayer& instance) {
+	for (SComponent& gameObject : instance.gameObjects) {
+		gameObject.onStart.trigger(gameObject);
+	}
+}
+
 void SLayer::update(SLayer& instance) {
 	for (SComponent& gameObject : instance.gameObjects) {
 		gameObject.onUpdate.trigger(gameObject);
@@ -13,7 +19,9 @@ void SLayer::draw(SLayer& instance) {
 }
 
 void SLayer::end(SLayer& instance) {
-	//TODO
+	for (SComponent& gameObject : instance.gameObjects) {
+		gameObject.onEnd.trigger(gameObject);
+	}
 }
 
 SComponentEvent<SLayer> SLayer::onStart = SComponentEvent<SLayer>(std::vector<void(*)(SLayer&)>());

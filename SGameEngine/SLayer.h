@@ -4,6 +4,8 @@
 
 class SLayer : public SComponent {
 private:
+	static void start(SLayer& instance);
+
 	static void update(SLayer& instance);
 
 	static void draw(SLayer& instance);
