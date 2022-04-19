@@ -1,26 +1,20 @@
 #pragma once
 
-#include "SComponent.h"
-
 class SColor : public SComponent {
-private:
-	double alpha;
 
 public:
-	char red;
-	char green;
-	char blue;
+	unsigned char red;
+	unsigned char green;
+	unsigned char blue;
+	double alpha;
+	
 	static SComponentEvent<SColor> onStart;
 	static SComponentEvent<SColor> onUpdate;
 	static SComponentEvent<SColor> onDraw;
 	static SComponentEvent<SColor> onEnd;
 
-	SColor(char _red = 0, char _green = 0, char _blue = 0, double _alpha = 1);
+	SColor(unsigned char _red = 0, unsigned char _green = 0, unsigned char _blue = 0, double _alpha = 1);
 	SColor(const SColor& other);
-
-	double getAlpha();
-
-	void setAlpha(double _alpha);
 
 	SColor over(const SColor& other);
 

@@ -1,4 +1,4 @@
-#include "SSearchOptions.h"
+#include "SGameEngine.h"
 
 SSearchOptions::SSearchOptions(
 	std::unordered_set<std::string> _tagsMustInclude,

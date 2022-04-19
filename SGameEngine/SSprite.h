@@ -1,13 +1,10 @@
 #pragma once
 
-#include "SComponent.h"
-#include "SImage.h"
-
 class SSprite : public SComponent {
 private:
+	int imageIndex;
 	double scale;
 	double rotation;
-	int imageIndex;
 
 	static void update(SSprite& instance);
 
@@ -20,6 +17,9 @@ public:
 	static SComponentEvent<SSprite> onDraw;
 	static SComponentEvent<SSprite> onEnd;
 
-	SSprite();
+	SSprite(const std::vector<SImage>& _images = std::vector<SImage>(), int _imageIndex = 0, double _scale = 1, double _rotation = 0);
+	SSprite(std::string filepath);
 	SSprite(const SSprite& other);
+
+	bool loadFromFile(std::string filepath);
 };

@@ -1,4 +1,4 @@
-#include "SGame.h"
+#include "SGameEngine.h"
 
 void SGame::start() {
 	SLevel::onStart.trigger(levels[0]);

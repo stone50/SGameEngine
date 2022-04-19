@@ -1,7 +1,5 @@
 #pragma once
 
-#include <unordered_set>
-
 class SSearchOptions {
 public:
 	std::unordered_set<std::string> tagsMustInclude;

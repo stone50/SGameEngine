@@ -1,7 +1,5 @@
 #pragma once
 
-#include "SLevel.h"
-
 class SGame {
 private:
 	static int levelIndex;

@@ -1,8 +1,5 @@
 #pragma once
 
-#include "SComponent.h"
-#include "SLayer.h"
-
 class SLevel : public SComponent {
 private:
 	static void start(SLevel& instance);

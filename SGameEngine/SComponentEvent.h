@@ -1,9 +1,5 @@
 #pragma once
 
-#include <vector>
-
-#include "SEvent.h"
-
 template <class T>
 class SComponentEvent : SEvent {
 public:

@@ -1,7 +1,4 @@
-#include <unordered_set>
-#include <string>
-
-#include "SPoint.h"
+#include "SGameEngine.h"
 
 SComponentEvent<SPoint> SPoint::onStart = SComponentEvent<SPoint>();
 

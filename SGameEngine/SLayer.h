@@ -1,7 +1,5 @@
 #pragma once
 
-#include "SComponent.h"
-
 class SLayer : public SComponent {
 private:
 	static void start(SLayer& instance);

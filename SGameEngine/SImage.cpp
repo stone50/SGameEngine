@@ -1,4 +1,4 @@
-#include "SImage.h"
+#include "SGameEngine.h"
 
 void SImage::end(SImage& instance) {
 	//TODO
@@ -26,8 +26,4 @@ SImage::SImage(const SImage& other) :
 	tags = other.tags;
 	components = other.components;
 	onStart.trigger(*this);
-}
-
-void SImage::loadFromFile(std::string filepath) {
-	//TODO
 }

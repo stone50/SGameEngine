@@ -1,7 +1,5 @@
 #pragma once
 
-#include "SComponent.h"
-
 class SPoint : public SComponent {
 private:
 

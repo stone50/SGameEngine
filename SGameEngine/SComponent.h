@@ -1,11 +1,5 @@
 #pragma once
 
-#include <string>
-#include <vector>
-
-#include "SSearchOptions.h"
-#include "SComponentEvent.h"
-
 class SComponent {
 private:
 	static void update(SComponent& instance);

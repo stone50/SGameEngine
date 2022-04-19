@@ -1,6 +1,4 @@
-#include <algorithm>
-
-#include "SColor.h"
+#include "SGameEngine.h"
 
 SComponentEvent<SColor> SColor::onStart = SComponentEvent<SColor>();
 
@@ -10,11 +8,11 @@ SComponentEvent<SColor> SColor::onDraw = SComponentEvent<SColor>();
 
 SComponentEvent<SColor> SColor::onEnd = SComponentEvent<SColor>();
 
-SColor::SColor(char _red, char _green, char _blue, double _alpha) :
+SColor::SColor(unsigned char _red, unsigned char _green, unsigned char _blue, double _alpha) :
 	red(_red),
 	green(_green),
 	blue(_blue),
-	alpha(std::clamp(_alpha, 0.0, 1.0))
+	alpha(_alpha)
 {
 	tags = std::unordered_set<std::string>({ "color" });
 	onStart.trigger(*this);
@@ -28,14 +26,6 @@ SColor::SColor(const SColor& other) :
 	tags = other.tags;
 	components = other.components;
 	onStart.trigger(*this);
-}
-
-double SColor::getAlpha() {
-	return alpha;
-}
-
-void SColor::setAlpha(double _alpha) {
-	alpha = std::clamp(_alpha, 0.0, 1.0);
 }
 
 SColor SColor::over(const SColor& other) {

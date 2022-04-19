@@ -1,7 +1,5 @@
 #pragma once
 
-#include <vector>
-
 class SEvent {
 public:
 	std::vector<void(*)()> handlers;

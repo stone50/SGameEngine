@@ -1,5 +1,4 @@
-#include "SComponent.h"
-#include "SGame.h"
+#include "SGameEngine.h"
 
 void SComponent::update(SComponent& instance) {
 	for (SComponent& component : instance.components) {
