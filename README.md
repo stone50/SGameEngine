@@ -2,9 +2,9 @@
 
 This is a non-visual game engine for c++
 
-## How To Use
+## How To Use (Not Yet Ready For Use)
 
--Clone this repo
+-Fork this repo and clone it
 
 -Make sure `SGameEngine.h` is setup as the precompiled header file
 
