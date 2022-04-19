@@ -4,12 +4,13 @@
 
 class SExampleComponent : public SComponent {
 private:
-	//==========================\\
-	// your private members here\\
-	//==========================\\
+	//===========================\\
+	// your private members here \\
+	//===========================\\
 
 
-	// these four functions are optional - just be sure to remove them from their respective SComponentEvent in SExampleComponent.cpp if you choose to exclude them
+	// these four functions are optional
+	// just be sure to remove them from their respective SComponentEvent in SExampleComponent.cpp if you choose to exclude them
 	static void start(SExampleComponent& instance);
 
 	static void update(SExampleComponent& instance);
@@ -19,17 +20,17 @@ private:
 	static void end(SExampleComponent& instance);
 
 public:
-	//=========================\\
-	// your public members here\\
-	//=========================\\
+	//==========================\\
+	// your public members here \\
+	//==========================\\
 
-
-	// these four events are necessary
+	// these events store functions and call them when triggered
 	static SComponentEvent<SExampleComponent> onStart;
 	static SComponentEvent<SExampleComponent> onUpdate;
 	static SComponentEvent<SExampleComponent> onDraw;
 	static SComponentEvent<SExampleComponent> onEnd;
 
-	// constructors are optional
+	// these constructors can be customized
 	SExampleComponent();
+	SExampleComponent(const SExampleComponent& other);
 };

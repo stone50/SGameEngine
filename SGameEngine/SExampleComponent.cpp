@@ -1,9 +1,9 @@
 #include "SGameEngine.h"
 #include "SExampleComponent.h"
 
-//=====================================\\
-// your private member definitions here\\
-//=====================================\\
+//======================================\\
+// your private member definitions here \\
+//======================================\\
 
 void SExampleComponent::start(SExampleComponent& instance) {
 	// this code is run when an instance of this component is created
@@ -21,9 +21,9 @@ void SExampleComponent::end(SExampleComponent& instance) {
 	// this code is run when an instance of this component is destroyed
 }
 
-//====================================\\
-// your public member definitions here\\
-//====================================\\
+//=====================================\\
+// your public member definitions here \\
+//=====================================\\
 
 // if you decide not to use the start function, onStart should look like this:
 // SComponentEvent<SExampleComponent> SExampleComponent::onStart = SComponentEvent<SExampleComponent>();
@@ -43,4 +43,16 @@ SComponentEvent<SExampleComponent> SExampleComponent::onEnd = SComponentEvent<SE
 	end
 	}));
 
-SExampleComponent::SExampleComponent() {}
+SExampleComponent::SExampleComponent() {
+	// define at least one unique tag for your component for easy identification
+	tags = std::unordered_set<std::string>({ "example component" });
+
+	// triggering the onStart event is necessary for all constructors
+	onStart.trigger(*this);
+}
+
+SExampleComponent::SExampleComponent(const SExampleComponent& other) {
+	tags = other.tags;
+	components = other.components;
+	onStart.trigger(*this);
+}
