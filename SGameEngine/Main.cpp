@@ -1,6 +1,6 @@
 #include "SGameEngine.h"
 
 int main() {
-	SSprite sprite("bitmap.bmp");
+	SGame::onStart.handlers.push_back(GameStart);
 	return 1;
 }
