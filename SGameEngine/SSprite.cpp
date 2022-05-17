@@ -1,51 +1,35 @@
 #include "SGameEngine.h"
 
-void SSprite::update(SSprite& instance) {
-	//TODO
-}
-
-void SSprite::draw(SSprite& instance) {
-	//TODO
-}
-
-SComponentEvent<SSprite> SSprite::onStart = SComponentEvent<SSprite>();
-
-SComponentEvent<SSprite> SSprite::onUpdate = SComponentEvent<SSprite>(std::vector<void(*)(SSprite&)>({
-	update
-	}));
-
-SComponentEvent<SSprite> SSprite::onDraw = SComponentEvent<SSprite>(std::vector<void(*)(SSprite&)>({
-	draw
-	}));
-
-SComponentEvent<SSprite> SSprite::onEnd = SComponentEvent<SSprite>();
-
-SSprite::SSprite(const std::vector<SImage>& _images, int _imageIndex, double _scale, double _rotation) :
+SSprite::SSprite(const std::vector<SImage>& _images, const unsigned int _imageIndex, const double _animationSpeed, const double _frameDelay) :
 	images(_images),
-	imageIndex(_imageIndex % _images.size()),
-	scale(_scale),
-	rotation(_rotation)
+	imageIndex(_imageIndex),
+	animationSpeed(_animationSpeed),
+	frameDelay(_frameDelay)
 {
 	tags = std::unordered_set<std::string>({ "sprite" });
-	onStart.trigger(*this);
 }
-SSprite::SSprite(std::string filepath) :
-	imageIndex(0),
-	scale(1),
-	rotation(0)
+SSprite::SSprite(const std::string& filepath, const unsigned int _imageIndex, const double _animationSpeed, const double _frameDelay) :
+	images(std::vector<SImage>()),
+	imageIndex(_imageIndex),
+	animationSpeed(_animationSpeed),
+	frameDelay(_frameDelay)
 {
 	loadFromFile(filepath);
 	tags = std::unordered_set<std::string>({ "sprite" });
-	onStart.trigger(*this);
 }
 SSprite::SSprite(const SSprite& other) :
-	images(other.images)
+	images(other.images),
+	imageIndex(other.imageIndex),
+	animationSpeed(other.animationSpeed),
+	frameDelay(other.frameDelay)
 {
 	tags = other.tags;
-	components = other.components;
-	onStart.trigger(*this);
 }
 
-bool SSprite::loadFromFile(std::string filepath) {
+void SSprite::update() {
+	// TODO
+}
+
+bool SSprite::loadFromFile(const std::string& filepath) {
 	return SImageLoader::load(filepath, images);
 }

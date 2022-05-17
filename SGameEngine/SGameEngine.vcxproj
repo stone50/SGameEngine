@@ -161,10 +161,8 @@
   <ItemGroup>
     <ClInclude Include="GameStart.h" />
     <ClInclude Include="SExampleComponent.h" />
+    <ClInclude Include="SGameObject.h" />
     <ClInclude Include="SImageLoader.h" />
-    <ClInclude Include="SComponent.h" />
-    <ClInclude Include="SComponentEvent.h" />
-    <ClInclude Include="SEvent.h" />
     <ClInclude Include="SGame.h" />
     <ClInclude Include="SGameEngine.h" />
     <ClInclude Include="SImage.h" />
@@ -172,16 +170,14 @@
     <ClInclude Include="SLevel.h" />
     <ClInclude Include="SColor.h" />
     <ClInclude Include="SPoint.h" />
-    <ClInclude Include="SSearchOptions.h" />
     <ClInclude Include="SSprite.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameStart.cpp" />
     <ClCompile Include="SExampleComponent.cpp" />
+    <ClCompile Include="SGameObject.cpp" />
     <ClCompile Include="SImageLoader.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="SComponent.cpp" />
-    <ClCompile Include="SEvent.cpp" />
     <ClCompile Include="SGame.cpp" />
     <ClCompile Include="SGameEngine.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -198,11 +194,9 @@
       </PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="SImage.cpp" />
-    <ClCompile Include="SLayer.cpp" />
     <ClCompile Include="SLevel.cpp" />
     <ClCompile Include="SColor.cpp" />
     <ClCompile Include="SPoint.cpp" />
-    <ClCompile Include="SSearchOptions.cpp" />
     <ClCompile Include="SSprite.cpp" />
   </ItemGroup>
   <ItemGroup>

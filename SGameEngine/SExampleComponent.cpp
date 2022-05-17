@@ -5,20 +5,46 @@
 // your private member definitions here \\
 //======================================\\
 
+// this code is run when an instance of this component is created
 void SExampleComponent::start(SExampleComponent& instance) {
-	// this code is run when an instance of this component is created
+	//================\\
+	// your code here \\
+	//================\\
+
+	// it is required to trigger the SComponent::onStart event after your code
+	SComponent::onStart.trigger(instance);
 }
 
+// this code is run every frame
 void SExampleComponent::update(SExampleComponent& instance) {
-	// this code is run every frame
+	//================\\
+	// your code here \\
+	//================\\
+
+	// it is required to trigger the SComponent::onUpdate event after your code
+	SComponent::onUpdate.trigger(instance);
 }
 
+// this code is run every frame, after all game objects have been updated
 void SExampleComponent::draw(SExampleComponent& instance) {
-	// this code is run every frame, after all game objects have been updated
+	//================\\
+	// your code here \\
+	//================\\
+
+	// it is required to trigger the SComponent::onDraw event after your code
+	SComponent::onDraw.trigger(instance);
 }
 
+// this code is run when an instance of this component is destroyed
 void SExampleComponent::end(SExampleComponent& instance) {
-	// this code is run when an instance of this component is destroyed
+
+	// it is required to trigger the SComponent::onEnd event before your code
+	SComponent::onEnd.trigger(instance);
+
+	//================\\
+	// your code here \\
+	//================\\
+	
 }
 
 //=====================================\\
@@ -53,6 +79,5 @@ SExampleComponent::SExampleComponent() {
 
 SExampleComponent::SExampleComponent(const SExampleComponent& other) {
 	tags = other.tags;
-	components = other.components;
 	onStart.trigger(*this);
 }

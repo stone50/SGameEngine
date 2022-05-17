@@ -288,8 +288,7 @@ bool SImageLoader::loadBmpFromContents(const std::vector<unsigned char>& fileCon
 	}
 
 	// read pixel array
-	frames.push_back(SImage());
-	frames[0].pixels = std::vector<std::vector<SColor>>(height, std::vector<SColor>(width, SColor()));
+	frames.push_back(std::vector<std::vector<SColor>>(height, std::vector<SColor>(width, SColor())));
 	unsigned char padding = (unsigned char)(ceil(bitCount * width / 32.0) * 4) - (bitCount * width / 8);
 	switch (bitCount) {
 	case 1:

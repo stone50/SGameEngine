@@ -42,9 +42,6 @@
     <ClInclude Include="SColor.h">
       <Filter>Header Files\SGameEngine\Default Components</Filter>
     </ClInclude>
-    <ClInclude Include="SComponent.h">
-      <Filter>Header Files\SGameEngine\Default Components</Filter>
-    </ClInclude>
     <ClInclude Include="SImage.h">
       <Filter>Header Files\SGameEngine\Default Components</Filter>
     </ClInclude>
@@ -60,12 +57,6 @@
     <ClInclude Include="SSprite.h">
       <Filter>Header Files\SGameEngine\Default Components</Filter>
     </ClInclude>
-    <ClInclude Include="SComponentEvent.h">
-      <Filter>Header Files\SGameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="SEvent.h">
-      <Filter>Header Files\SGameEngine</Filter>
-    </ClInclude>
     <ClInclude Include="SGame.h">
       <Filter>Header Files\SGameEngine</Filter>
     </ClInclude>
@@ -75,27 +66,21 @@
     <ClInclude Include="SImageLoader.h">
       <Filter>Header Files\SGameEngine</Filter>
     </ClInclude>
-    <ClInclude Include="SSearchOptions.h">
-      <Filter>Header Files\SGameEngine</Filter>
-    </ClInclude>
     <ClInclude Include="GameStart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SExampleComponent.h">
       <Filter>Header Files\Custom Components</Filter>
     </ClInclude>
+    <ClInclude Include="SGameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SColor.cpp">
       <Filter>Source Files\SGameEngine\Default Components</Filter>
     </ClCompile>
-    <ClCompile Include="SComponent.cpp">
-      <Filter>Source Files\SGameEngine\Default Components</Filter>
-    </ClCompile>
     <ClCompile Include="SImage.cpp">
-      <Filter>Source Files\SGameEngine\Default Components</Filter>
-    </ClCompile>
-    <ClCompile Include="SLayer.cpp">
       <Filter>Source Files\SGameEngine\Default Components</Filter>
     </ClCompile>
     <ClCompile Include="SLevel.cpp">
@@ -113,9 +98,6 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files\SGameEngine</Filter>
     </ClCompile>
-    <ClCompile Include="SEvent.cpp">
-      <Filter>Source Files\SGameEngine</Filter>
-    </ClCompile>
     <ClCompile Include="SGame.cpp">
       <Filter>Source Files\SGameEngine</Filter>
     </ClCompile>
@@ -125,11 +107,11 @@
     <ClCompile Include="SImageLoader.cpp">
       <Filter>Source Files\SGameEngine</Filter>
     </ClCompile>
-    <ClCompile Include="SSearchOptions.cpp">
-      <Filter>Source Files\SGameEngine</Filter>
-    </ClCompile>
     <ClCompile Include="SExampleComponent.cpp">
       <Filter>Source Files\Custom Components</Filter>
+    </ClCompile>
+    <ClCompile Include="SGameObject.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

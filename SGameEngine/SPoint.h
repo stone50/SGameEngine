@@ -1,52 +1,49 @@
 #pragma once
 
-class SPoint : public SComponent {
+class SPoint {
 private:
 
 public:
 	double x;
 	double y;
-	static SComponentEvent<SPoint> onStart;
-	static SComponentEvent<SPoint> onUpdate;
-	static SComponentEvent<SPoint> onDraw;
-	static SComponentEvent<SPoint> onEnd;
-
-	SPoint(double _x = 0, double _y = 0);
-	SPoint(const SPoint& other);
+	std::unordered_set<std::string> tags;
 
 	SPoint& operator=(const SPoint& other);
 
 	SPoint operator+(const SPoint& other);
-	SPoint operator+(double delta);
+	SPoint operator+(const double delta);
 
 	SPoint operator-(const SPoint& other);
-	SPoint operator-(double delta);
+	SPoint operator-(const double delta);
 
 	SPoint operator*(const SPoint& other);
-	SPoint operator*(double delta);
+	SPoint operator*(const double delta);
 
 	SPoint operator/(const SPoint& other);
-	SPoint operator/(double delta);
+	SPoint operator/(const double delta);
 
 	SPoint operator%(const SPoint& other);
-	SPoint operator%(double delta);
+	SPoint operator%(const double delta);
 
 	SPoint& operator+=(const SPoint& other);
-	SPoint& operator+=(double delta);
+	SPoint& operator+=(const double delta);
 
 	SPoint& operator-=(const SPoint& other);
 	SPoint& operator-=(double delta);
 
 	SPoint& operator*=(const SPoint& other);
-	SPoint& operator*=(double delta);
+	SPoint& operator*=(const double delta);
 
 	SPoint& operator/=(const SPoint& other);
-	SPoint& operator/=(double delta);
+	SPoint& operator/=(const double delta);
 
 	SPoint& operator%=(const SPoint& other);
-	SPoint& operator%=(double delta);
+	SPoint& operator%=(const double delta);
 
 	bool operator==(const SPoint& other);
 
 	bool operator!=(const SPoint& other);
+
+	SPoint(const double _x = 0, const double _y = 0);
+	SPoint(const SPoint& other);
 };

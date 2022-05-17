@@ -1,21 +1,15 @@
 #pragma once
 
-class SColor : public SComponent {
-
+class SColor {
 public:
 	unsigned char red;
 	unsigned char green;
 	unsigned char blue;
 	double alpha;
-	
-	static SComponentEvent<SColor> onStart;
-	static SComponentEvent<SColor> onUpdate;
-	static SComponentEvent<SColor> onDraw;
-	static SComponentEvent<SColor> onEnd;
+	std::unordered_set<std::string> tags;
 
-	SColor(unsigned char _red = 0, unsigned char _green = 0, unsigned char _blue = 0, double _alpha = 1);
+	SColor(const unsigned char _red = 0, const unsigned char _green = 0, const unsigned char _blue = 0, const double _alpha = 1);
 	SColor(const SColor& other);
 
 	SColor over(const SColor& other);
-
 };

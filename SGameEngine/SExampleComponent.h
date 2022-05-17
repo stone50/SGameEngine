@@ -4,13 +4,10 @@
 
 class SExampleComponent : public SComponent {
 private:
-	//===========================\\
-	// your private members here \\
-	//===========================\\
+	// example private member
+	int health;
 
-
-	// these four functions are optional
-	// just be sure to remove them from their respective SComponentEvent in SExampleComponent.cpp if you choose to exclude them
+	// these functions define the default behavior of your component
 	static void start(SExampleComponent& instance);
 
 	static void update(SExampleComponent& instance);
@@ -20,15 +17,12 @@ private:
 	static void end(SExampleComponent& instance);
 
 public:
-	//==========================\\
-	// your public members here \\
-	//==========================\\
+	// example public member
+	void takeDamage(int damage);
 
-	// these events store functions and call them when triggered
-	static SComponentEvent<SExampleComponent> onStart;
-	static SComponentEvent<SExampleComponent> onUpdate;
-	static SComponentEvent<SExampleComponent> onDraw;
-	static SComponentEvent<SExampleComponent> onEnd;
+	static void onStart(SComponent* instance);
+
+	static std::unique_ptr<SComponent> createComponent(std::unordered_set<std::string> _tags = std::unordered_set<std::string>());
 
 	// these constructors can be customized
 	SExampleComponent();

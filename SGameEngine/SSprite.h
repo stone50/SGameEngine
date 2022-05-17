@@ -1,25 +1,21 @@
 #pragma once
 
-class SSprite : public SComponent {
+class SSprite {
 private:
-	int imageIndex;
-	double scale;
-	double rotation;
-
-	static void update(SSprite& instance);
-
-	static void draw(SSprite& instance);
-
+	
 public:
 	std::vector<SImage> images;
-	static SComponentEvent<SSprite> onStart;
-	static SComponentEvent<SSprite> onUpdate;
-	static SComponentEvent<SSprite> onDraw;
-	static SComponentEvent<SSprite> onEnd;
+	double animationSpeed;
+	unsigned int imageIndex;
+	double frameDelay;
+	std::unordered_set<std::string> tags;
 
-	SSprite(const std::vector<SImage>& _images = std::vector<SImage>(), int _imageIndex = 0, double _scale = 1, double _rotation = 0);
-	SSprite(std::string filepath);
+	SSprite(const std::vector<SImage>& _images = std::vector<SImage>(), const unsigned int _imageIndex = 0, const double _animationSpeed = 0, const double _frameDelay = 0);
+	SSprite(const std::string& filepath, const unsigned int _imageIndex, const double _animationSpeed, const double _frameDelay);
 	SSprite(const SSprite& other);
 
-	bool loadFromFile(std::string filepath);
+	void update();
+
+	bool loadFromFile(const std::string& filepath);
+
 };
