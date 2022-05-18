@@ -1,12 +1,11 @@
 #pragma once
 
-class SPoint {
+class SPoint : public SComponent {
 private:
 
 public:
 	double x;
 	double y;
-	std::unordered_set<std::string> tags;
 
 	SPoint& operator=(const SPoint& other);
 

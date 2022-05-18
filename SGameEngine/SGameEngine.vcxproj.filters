@@ -19,23 +19,23 @@
     <Filter Include="Header Files\SGameEngine\Default Components">
       <UniqueIdentifier>{7bdac87b-fe87-47d9-a64b-23be7b638dfb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Custom Components">
-      <UniqueIdentifier>{4aa8e62e-7400-4bcb-914c-f686a14ca4a1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\SGameEngine">
       <UniqueIdentifier>{4612ea6c-b1dc-4cdd-a0e0-f90288abd789}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\SGameEngine\Default Components">
       <UniqueIdentifier>{2e290f55-37dd-4b55-bda7-1c2b5c559160}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Custom Components">
-      <UniqueIdentifier>{27ceeb79-faa7-4040-b772-eb3fe5254c89}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\Images">
       <UniqueIdentifier>{56d2ef1d-8e91-4d7f-adcb-14e83334fdba}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files\Sounds">
       <UniqueIdentifier>{4407b36a-36e1-44e5-be11-c71420020896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SGameEngine\Custom Components">
+      <UniqueIdentifier>{27ceeb79-faa7-4040-b772-eb3fe5254c89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SGameEngine\Custom Components">
+      <UniqueIdentifier>{4aa8e62e-7400-4bcb-914c-f686a14ca4a1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -66,14 +66,11 @@
     <ClInclude Include="SImageLoader.h">
       <Filter>Header Files\SGameEngine</Filter>
     </ClInclude>
-    <ClInclude Include="GameStart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SExampleComponent.h">
-      <Filter>Header Files\Custom Components</Filter>
+    <ClInclude Include="SComponent.h">
+      <Filter>Header Files\SGameEngine\Default Components</Filter>
     </ClInclude>
     <ClInclude Include="SGameObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\SGameEngine\Default Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -92,26 +89,20 @@
     <ClCompile Include="SSprite.cpp">
       <Filter>Source Files\SGameEngine\Default Components</Filter>
     </ClCompile>
-    <ClCompile Include="GameStart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files\SGameEngine</Filter>
     </ClCompile>
     <ClCompile Include="SGame.cpp">
       <Filter>Source Files\SGameEngine</Filter>
     </ClCompile>
-    <ClCompile Include="SGameEngine.cpp">
-      <Filter>Source Files\SGameEngine</Filter>
+    <ClCompile Include="SComponent.cpp">
+      <Filter>Source Files\SGameEngine\Default Components</Filter>
+    </ClCompile>
+    <ClCompile Include="SGameObject.cpp">
+      <Filter>Source Files\SGameEngine\Default Components</Filter>
     </ClCompile>
     <ClCompile Include="SImageLoader.cpp">
       <Filter>Source Files\SGameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="SExampleComponent.cpp">
-      <Filter>Source Files\Custom Components</Filter>
-    </ClCompile>
-    <ClCompile Include="SGameObject.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

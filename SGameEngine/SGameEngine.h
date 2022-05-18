@@ -8,9 +8,6 @@
 #include <chrono>
 
 // helpers
-#include "SEvent.h"
-#include "SComponentEvent.h"
-#include "SSearchOptions.h"
 
 // components
 #include "SComponent.h"
@@ -18,10 +15,10 @@
 #include "SColor.h"
 #include "SImage.h"
 #include "SSprite.h"
+#include "SGameObject.h"
 #include "SLayer.h"
 #include "SLevel.h"
 
 // general
 #include "SImageLoader.h"
 #include "SGame.h"
-#include "GameStart.h"

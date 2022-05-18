@@ -1,63 +1,76 @@
 #include "SGameEngine.h"
 
-void SLevel::start(SLevel& instance) {
-	for (SLayer& layer : instance.layers) {
-		SLayer::onStart.trigger(layer);
+#define call_layer_function(component, function)										\
+	SLayer<component>* componentLayer = dynamic_cast<SLayer<component>*>(layer.get());	\
+	if (componentLayer) {																\
+		SLayer<component>::function(*componentLayer);									\
+		break;																			\
 	}
 
-	SComponent::onStart.trigger(instance);
-}
+#define start_layer(component) call_layer_function(component, start)
+#define update_layer(component) call_layer_function(component, update)
+#define draw_layer(component) call_layer_function(component, draw)
+#define end_layer(component) call_layer_function(component, end)
 
-void SLevel::update(SLevel& instance) {
-	for (SLayer& layer : instance.layers) {
-		SLayer::onUpdate.trigger(layer);
+#define return_layer(component)															\
+	SLayer<component>* componentLayer = dynamic_cast<SLayer<component>*>(layer.get());	\
+	if (componentLayer) {																\
+		return *componentLayer;															\
 	}
 
-	SComponent::onUpdate.trigger(instance);
-}
-
-void SLevel::draw(SLevel& instance) {
-	for (SLayer& layer : instance.layers) {
-		SLayer::onDraw.trigger(layer);
-	}
-
-	SComponent::onDraw.trigger(instance);
-}
-
-void SLevel::end(SLevel& instance) {
-	SComponent::onEnd.trigger(instance);
-
-	for (SLayer& layer : instance.layers) {
-		SLayer::onEnd.trigger(layer);
-	}
-}
-
-SComponentEvent<SLevel> SLevel::onStart = SComponentEvent<SLevel>(std::vector<void(*)(SLevel&)>({
-	start
-	}));
-
-SComponentEvent<SLevel> SLevel::onUpdate = SComponentEvent<SLevel>(std::vector<void(*)(SLevel&)>({
-	update
-	}));
-
-SComponentEvent<SLevel> SLevel::onDraw = SComponentEvent<SLevel>(std::vector<void(*)(SLevel&)>({
-	draw
-	}));
-
-SComponentEvent<SLevel> SLevel::onEnd = SComponentEvent<SLevel>(std::vector<void(*)(SLevel&)>({
-	end
-	}));
-
-SLevel::SLevel(const std::vector<SLayer>& _layers) :
+SLevel::SLevel(const std::vector<std::unique_ptr<SComponent>>& _layers) :
 	layers(_layers)
 {
 	tags = std::unordered_set<std::string>({ "level" });
-	onStart.trigger(*this);
 }
 
 SLevel::SLevel(const SLevel& other) :
 	layers(other.layers)
 {
 	tags = other.tags;
-	onStart.trigger(*this);
+}
+
+void SLevel::start(SLevel& instance) {
+	for (const std::unique_ptr<SComponent>& layer : instance.layers) {
+
+	}
+}
+
+void SLevel::update(SLevel& instance) {
+	for (const std::unique_ptr<SComponent>& layer : instance.layers) {
+		update_layer(SGameObject);
+	}
+}
+
+void SLevel::draw(SLevel& instance) {
+	for (const std::unique_ptr<SComponent>& layer : instance.layers) {
+		draw_layer(SGameObject);
+	}
+}
+
+void SLevel::end(SLevel& instance) {
+	for (const std::unique_ptr<SComponent>& layer : instance.layers) {
+
+	}
+}
+
+void SLevel::addLayer(const auto& layer) {
+	layers.push_back(std::unique_ptr<SComponent>(dynamic_cast<SComponent*>(layer)));
+}
+
+void SLevel::insertLayer(const unsigned int index, const auto& layer) {
+	layers.insert(std::unique_ptr<SComponent>(dynamic_cast<SComponent*>(layer)));
+}
+
+void SLevel::setLayer(const unsigned int index, const auto& layer) {
+
+}
+
+auto SLevel::getLayer(const unsigned int index) {
+	const std::unique_ptr<SComponent>& layer = layers[index];
+	return_layer(SGameObject);
+}
+
+void SLevel::removeLayer(const unsigned int index) {
+
 }

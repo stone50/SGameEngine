@@ -26,7 +26,7 @@ SSprite::SSprite(const SSprite& other) :
 	tags = other.tags;
 }
 
-void SSprite::update() {
+void SSprite::update(SSprite& instance) {
 	// TODO
 }
 

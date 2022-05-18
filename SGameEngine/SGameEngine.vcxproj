@@ -159,8 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="GameStart.h" />
-    <ClInclude Include="SExampleComponent.h" />
+    <ClInclude Include="SComponent.h" />
     <ClInclude Include="SGameObject.h" />
     <ClInclude Include="SImageLoader.h" />
     <ClInclude Include="SGame.h" />
@@ -173,26 +172,11 @@
     <ClInclude Include="SSprite.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameStart.cpp" />
-    <ClCompile Include="SExampleComponent.cpp" />
+    <ClCompile Include="SComponent.cpp" />
     <ClCompile Include="SGameObject.cpp" />
     <ClCompile Include="SImageLoader.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SGame.cpp" />
-    <ClCompile Include="SGameEngine.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeaderFile>
-    </ClCompile>
     <ClCompile Include="SImage.cpp" />
     <ClCompile Include="SLevel.cpp" />
     <ClCompile Include="SColor.cpp" />
