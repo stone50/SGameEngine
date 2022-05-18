@@ -12,12 +12,6 @@
 #define draw_layer(component) call_layer_function(component, draw)
 #define end_layer(component) call_layer_function(component, end)
 
-#define return_layer(component)															\
-	SLayer<component>* componentLayer = dynamic_cast<SLayer<component>*>(layer.get());	\
-	if (componentLayer) {																\
-		return *componentLayer;															\
-	}
-
 SLevel::SLevel(const std::vector<std::unique_ptr<SComponent>>& _layers) :
 	layers(_layers)
 {
@@ -31,20 +25,20 @@ SLevel::SLevel(const SLevel& other) :
 }
 
 void SLevel::start(SLevel& instance) {
-	for (const std::unique_ptr<SComponent>& layer : instance.layers) {
+	for (std::unique_ptr<SComponent>& layer : instance.layers) {
 
 	}
 }
 
 void SLevel::update(SLevel& instance) {
 	for (const std::unique_ptr<SComponent>& layer : instance.layers) {
-		update_layer(SGameObject);
+		update_layer(SGameObject)
 	}
 }
 
 void SLevel::draw(SLevel& instance) {
 	for (const std::unique_ptr<SComponent>& layer : instance.layers) {
-		draw_layer(SGameObject);
+		draw_layer(SGameObject)
 	}
 }
 
@@ -54,23 +48,22 @@ void SLevel::end(SLevel& instance) {
 	}
 }
 
-void SLevel::addLayer(const auto& layer) {
-	layers.push_back(std::unique_ptr<SComponent>(dynamic_cast<SComponent*>(layer)));
+void SLevel::addLayer(const std::unique_ptr<SComponent>& layer) {
+	layers.push_back(layer);
 }
 
-void SLevel::insertLayer(const unsigned int index, const auto& layer) {
-	layers.insert(std::unique_ptr<SComponent>(dynamic_cast<SComponent*>(layer)));
+void SLevel::insertLayer(const unsigned int index, const std::unique_ptr<SComponent>& layer) {
+	layers.insert(layers.begin() + index, layer);
 }
 
-void SLevel::setLayer(const unsigned int index, const auto& layer) {
-
+void SLevel::setLayer(const unsigned int index, std::unique_ptr<SComponent>& layer) {
+	layers[index] = std::move(layer);
 }
 
-auto SLevel::getLayer(const unsigned int index) {
-	const std::unique_ptr<SComponent>& layer = layers[index];
-	return_layer(SGameObject);
+std::unique_ptr<SComponent>& SLevel::getLayer(const unsigned int index) {
+	return layers[index];
 }
 
 void SLevel::removeLayer(const unsigned int index) {
-
+	layers.erase(layers.begin() + index);
 }

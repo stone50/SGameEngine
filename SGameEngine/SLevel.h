@@ -13,10 +13,10 @@ public:
 	static void draw(SLevel& instance);
 	static void end(SLevel& instance);
 
-	void addLayer(const auto& layer);
-	void insertLayer(const unsigned int index, const auto& layer);
-	void setLayer(const unsigned int index, const auto& layer);
-	auto getLayer(const unsigned int index);
+	void addLayer(const std::unique_ptr<SComponent>& layer);
+	void insertLayer(const unsigned int index, const std::unique_ptr<SComponent>& layer);
+	void setLayer(const unsigned int index, std::unique_ptr<SComponent>& layer);
+	std::unique_ptr<SComponent>& getLayer(const unsigned int index);
 	void removeLayer(const unsigned int index);
 
 };
